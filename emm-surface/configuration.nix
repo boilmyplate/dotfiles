@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./hyprland.nix
+      ./nvf-configuration.nix
     ];
 
   # Bootloader.
@@ -111,36 +112,7 @@
   #  configure = { };
   #};
 
-  programs.nvf = {
-    enable = true;
-    # your settings need to go into the settings attribute set
-    # most settings are documented in the appendix
-    settings = {
-      vim = {
-        viAlias = true;
-        vimAlias = true;
-
-        theme = {
-	  enable = true;
-	  name = "gruvbox";
-	  style = "dark";
-	};
-
-        statusline.lualine.enable = true;
-	autocomplete.nvim-cmp.enable = true;
-	telescope.enable = true;
-
-        languages = {
-	  enableLSP = true;
-	  enableTreesitter = true;
-
-	  nix.enable = true;
-	};
-      };
-      
-    };
-  };
-
+  
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
