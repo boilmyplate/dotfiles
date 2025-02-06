@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs = { nixpkgs, ... } @ inputs: 
@@ -17,7 +18,10 @@
       emm-surface = lib.nixosSystem {
         inherit system;
 	specialArgs = { inherit pkgs-stable; };
-        modules = [ ./configuration.nix ];
+        modules = [
+	  ./configuration.nix         
+	  nvf.nixosModules.default
+	];
       };
     };
   };
