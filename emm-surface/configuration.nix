@@ -130,11 +130,6 @@
     docker-client
     stow
     ripgrep
-    nodejs_22
-    libgcc
-    gnumake
-    unzip
-    fd
   ];
 
   fonts.packages = with pkgs; [
