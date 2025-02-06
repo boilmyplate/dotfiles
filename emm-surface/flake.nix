@@ -7,7 +7,7 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { nixpkgs, ... } @ inputs: 
+  outputs = { nixpkgs, nvf, ... } @ inputs: 
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
