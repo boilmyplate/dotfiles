@@ -129,6 +129,8 @@
     vscode
     docker-client
     stow
+    ripgrep
+    nodejs_22
   ];
 
   fonts.packages = with pkgs; [
