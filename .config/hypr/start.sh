@@ -12,4 +12,4 @@ waybar &
 
 mako &
 
-hyprctl setcursor Bibata-Modern-Classic 24
+#hyprctl setcursor Bibata-Modern-Classic 24
