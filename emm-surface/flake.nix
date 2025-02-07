@@ -4,10 +4,14 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    home-manager = {
+      url = "github:nixos-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { nixpkgs, nvf, ... } @ inputs: 
+  outputs = { self, nixpkgs, nvf, ... } @ inputs: 
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -16,13 +20,12 @@
   {
     nixosConfigurations = { 
       emm-surface = lib.nixosSystem {
-        inherit system;
-	specialArgs = { inherit pkgs-stable; };
+	specialArgs = { inherit inputs system pkgs-stable; };
         modules = [
 	  ./configuration.nix         
 	  nvf.nixosModules.default
 	];
       };
-    };
+    }; 
   };
 }
