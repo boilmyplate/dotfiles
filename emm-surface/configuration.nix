@@ -125,6 +125,7 @@
     git
     gh
     nh
+    playerctl
     xwayland
     wl-clipboard 
     nautilus
@@ -133,6 +134,7 @@
     docker-client
     stow
     ripgrep
+    zoxide
   ];
 
   fonts.packages = with pkgs; [
