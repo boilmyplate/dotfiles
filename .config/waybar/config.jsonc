@@ -1,0 +1,102 @@
+{
+  "layer": "top",
+  "height": 32,
+  "spacing": 6,
+
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "cpu",
+    "memory",
+    "battery",
+    "clock",
+    "tray"
+  ],
+
+  "hyprland/window": {
+    "max-length": 200,
+    "separate-outputs": true
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}   {windows}",
+    "on-scroll-up": "previous",
+    "on-scroll-down": "next",
+    "sort-by": "id",
+    "window-rewrite-default": "?",
+    "window-rewrite": {
+      "class<firefox>": "",
+      "class<Chromium-browser>": "",
+      "class<pavucontrol>": "",
+      "class<kitty>": "",
+      "class<code>": "",
+      "class<steam>": "",
+      "class<discord>": "",
+      "class<spotify>": "",
+      "class<keepassxc>": "",
+      "class<nautilus>": "",
+      "class<Gimp-2.10>": "",
+      "class<com.obsproject.Studio>": ""
+    },
+    "format-icons": {
+      "6": "1",
+      "7": "2",
+      "8": "3",
+      "9": "4",
+      "10": "5"
+    }
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%I:%M:%S %p} "
+  },
+  "battery": {
+    "interval": 60,
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰢞",
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 25
+  },
+  "cpu": {
+    "format": "CPU {usage}% ",
+    "states": {
+      "warning": 80,
+      "critical": 90
+    }
+  },
+  "memory": {
+    "format": "RAM {used:0.1f} GB ",
+    "tooltip-format": "{used:0.1f}GB / {total:0.1f}GB",
+    "states": {
+      "warning": 80,
+      "critical": 90
+    }
+  },
+  "network": {
+    "interval": 2,
+    "format-wifi": " {bandwidthDownBits} |  {bandwidthUpBits} ",
+    "format-ethernet": " {bandwidthDownBits} |  {bandwidthUpBits} ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{volume}% {icon}   {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  }
+}
