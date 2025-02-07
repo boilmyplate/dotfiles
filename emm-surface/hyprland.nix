@@ -30,6 +30,7 @@
     mako
     rofi-wayland
     cliphist
+    hyprshot
   ];
 
 
