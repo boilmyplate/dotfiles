@@ -109,6 +109,7 @@
       "emm" = import ./home.nix;
     };
     useGlobalPkgs = true;
+    backupFileExtension = "backup";
   };
 
   
@@ -138,6 +139,9 @@
   #  vimAlias = true;
   #  configure = { };
   #};
+
+
+  programs.light.enable = true;
 
   
   # Allow unfree packages
