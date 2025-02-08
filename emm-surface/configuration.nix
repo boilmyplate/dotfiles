@@ -146,16 +146,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     kitty
-    #git # enabled through home-manager
+    xwayland
+    stow
   ];
 
   fonts.packages = with pkgs; [
-    #(nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ];})
-    #fira-code
-    #fira-mono
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
   ];

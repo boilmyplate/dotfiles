@@ -11,15 +11,14 @@
   home.packages = with pkgs; [
     gh
     nh
+    networkmanagerapplet
     pavucontrol
     playerctl
-    xwayland
     wl-clipboard 
     nautilus
     webcord
     vscode
     docker-client
-    stow
     ripgrep
     zoxide
     gruvbox-gtk-theme
@@ -27,9 +26,9 @@
   ];
 
 
-  programs.git = {
-    enable = true;
-  };
+  programs.bash.enable = true;
+  programs.zoxide.enable = true;
+  programs.git.enable = true;
 
   
   qt = {
@@ -37,6 +36,7 @@
     platformTheme.name = "qtct";
     style.name = "kvantum";
   };
+
 
   home.stateVersion = "24.11";
   programs.home-manager.enable = true;
