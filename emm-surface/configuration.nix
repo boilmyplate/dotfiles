@@ -8,9 +8,12 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.home-manager
       ./hyprland.nix
       ./nvf-configuration.nix
     ];
+
+  
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -100,6 +103,22 @@
   };
 
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "emm" = import ./home.nix;
+    };
+    useGlobalPkgs = true;
+  };
+
+  
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+    style = "kvantum";
+  };
+
+
     # Install firefox.
   programs.firefox.enable = true;
 
@@ -130,20 +149,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     kitty
-    git
-    gh
-    nh
-    pavucontrol
-    playerctl
-    xwayland
-    wl-clipboard 
-    nautilus
-    webcord
-    vscode
-    docker-client
-    stow
-    ripgrep
-    zoxide
+    #git # enabled through home-manager
   ];
 
   fonts.packages = with pkgs; [
@@ -159,6 +165,8 @@
     #WLR_NO_HARDWARE_CURSORS = "1";
     # Hint electron apps to use wayland.
     #NIXOS_OZONE_WL = "1";
+
+    EDITOR = "nvim";
   };
 
   hardware = {

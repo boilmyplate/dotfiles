@@ -5,13 +5,13 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     home-manager = {
-      url = "github:nixos-community/home-manager";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { self, nixpkgs, nvf, ... } @ inputs: 
+  outputs = { self, nixpkgs, home-manager, nvf, ... } @ inputs: 
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -23,6 +23,7 @@
 	specialArgs = { inherit inputs system pkgs-stable; };
         modules = [
 	  ./configuration.nix         
+          home-manager.nixosModules.home-manager 
 	  nvf.nixosModules.default
 	];
       };
