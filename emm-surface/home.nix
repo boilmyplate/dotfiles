@@ -7,6 +7,10 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  home.shellAliases = {
+    ndev = "nix develop /home/emm/dotfiles/emm-surface";
+  };
  
   home.packages = with pkgs; [
     gh
