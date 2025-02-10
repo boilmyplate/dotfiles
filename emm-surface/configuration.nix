@@ -89,6 +89,7 @@
     #media-session.enable = true;
   };
 
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -120,30 +121,20 @@
   };
 
 
-    # Install firefox.
+  # Install firefox.
   programs.firefox.enable = true;
-
-  virtualisation.docker = {
-    enable = true;
-  };
 
   # Install starship.
   programs.starship.enable = true;
   programs.starship.presets = [ "nerd-font-symbols" ];
 
-  # REPLACED BY nvf
-  #programs.neovim = {
-  #  enable = true;
-  #  defaultEditor = true;
-  #  viAlias = true;
-  #  vimAlias = true;
-  #  configure = { };
-  #};
-
-
   programs.light.enable = true;
 
-  
+
+  virtualisation.docker = {
+    enable = true;
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -173,6 +164,7 @@
 
   hardware = {
     graphics.enable = true;
+    bluetooth.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
