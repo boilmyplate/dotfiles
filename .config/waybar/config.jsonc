@@ -25,7 +25,7 @@
     "on-scroll-up": "previous",
     "on-scroll-down": "next",
     "sort-by": "id",
-    "window-rewrite-default": "?",
+    "window-rewrite-default": "",
     "window-rewrite": {
       "class<firefox>": "",
       "class<Chromium-browser>": "",
@@ -33,7 +33,7 @@
       "class<kitty>": "",
       "class<code>": "",
       "class<steam>": "",
-      "class<discord>": "",
+      "class<webcord>": "",
       "class<spotify>": "",
       "class<keepassxc>": "",
       "class<nautilus>": "",
