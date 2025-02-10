@@ -12,6 +12,7 @@
     gh
     nh
     networkmanagerapplet
+    bluetui
     pavucontrol
     playerctl
     wl-clipboard 
