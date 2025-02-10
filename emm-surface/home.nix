@@ -14,7 +14,6 @@
  
   home.packages = with pkgs; [
     gh
-    nh
     networkmanagerapplet
     bluetui
     pavucontrol

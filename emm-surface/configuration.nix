@@ -97,7 +97,7 @@
   users.users.emm = {
     isNormalUser = true;
     description = "emm-surface";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -130,8 +130,19 @@
 
   programs.light.enable = true;
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/emm/dotfiles/emm-surface";
+  };
 
+  # Docker config.
   virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
