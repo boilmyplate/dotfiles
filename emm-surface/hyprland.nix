@@ -21,7 +21,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     xwaylandvideobridge
-    swww
+    hyprpaper
     nwg-look
     bibata-cursors
     hyprcursor
