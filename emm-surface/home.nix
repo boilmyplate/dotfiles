@@ -14,7 +14,7 @@
  
   home.packages = with pkgs; [
     gh
-    networkmanagerapplet
+    #networkmanagerapplet
     bluetui
     pavucontrol
     playerctl
