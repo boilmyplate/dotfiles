@@ -131,9 +131,7 @@
   programs.light.enable = true;
 
 
-  virtualisation.docker = {
-    enable = true;
-  };
+  virtualisation.docker.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -144,6 +142,8 @@
     vim
     wget
     kitty
+    docker
+    docker-compose
     xwayland
     stow
   ];

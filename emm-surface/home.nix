@@ -19,7 +19,6 @@
     nautilus
     webcord
     vscode
-    docker-client
     ripgrep
     zoxide
     gruvbox-gtk-theme
