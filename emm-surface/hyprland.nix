@@ -6,7 +6,9 @@
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
- # Enable hyprland.
+  # Enable UWSM
+  programs.uwsm.enable = true;
+  # Enable hyprland.
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -15,7 +17,6 @@
 
   programs.hyprlock.enable = true;
 
-  programs.nm-applet.enable = true;
 
  # List packages installed in system profile. To search, run:
   # $ nix search wget

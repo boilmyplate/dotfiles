@@ -11,9 +11,9 @@
       inputs.home-manager.nixosModules.home-manager
       ./hyprland.nix
       ./nvf-configuration.nix
+      ./greetd.nix
     ];
 
-  
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -22,7 +22,7 @@
   # Enable nix flakes.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  networking.hostName = "emm-surface"; # Define your hostname.
+  networking.hostName = "emm-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -55,8 +55,8 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = false;
+  services.xserver.desktopManager.gnome.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -91,7 +91,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.emm = {
     isNormalUser = true;
-    description = "emm-surface";
+    description = "emm";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird

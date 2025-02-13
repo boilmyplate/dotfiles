@@ -13,8 +13,6 @@
   };
  
   home.packages = with pkgs; [
-    gh
-    #networkmanagerapplet
     bluetui
     pavucontrol
     playerctl
@@ -30,14 +28,38 @@
 
 
   programs.bash.enable = true;
+  programs.bash.profileExtra = "
+    if uwsm check may-start; then\n
+      exec uwsm start hyprland-uwsm.desktop\n
+    fi
+  ";
   programs.zoxide.enable = true;
   programs.git.enable = true;
+  programs.gh.enable = true;
 
   
   qt = {
     enable = true;
     platformTheme.name = "qtct";
     style.name = "kvantum";
+  };
+
+
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      size = 22;
+      package = pkgs.bibata-cursors;
+    };
+    theme = {
+      name = "Gruvbox-Dark";
+      package = pkgs.gruvbox-gtk-theme;
+    };
+    iconTheme = {
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.gruvbox-plus-icons;
+    };
   };
 
 

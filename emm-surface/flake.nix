@@ -20,7 +20,7 @@
   in
   {
     nixosConfigurations = { 
-      emm-surface = lib.nixosSystem {
+      emm-nixos = lib.nixosSystem {
 	specialArgs = { inherit inputs system pkgs-stable; };
         modules = [
 	  ./configuration.nix         
