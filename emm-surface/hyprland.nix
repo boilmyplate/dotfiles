@@ -14,25 +14,22 @@
     xwayland.enable = true;
     withUWSM = true;
   };
-
   programs.hyprlock.enable = true;
-
 
  # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    xwaylandvideobridge
     hyprpaper
-    nwg-look
-    bibata-cursors
     hyprcursor
     hyprpolkitagent
+    hyprshot
+    hypridle
+    xwaylandvideobridge
+    nwg-look
+    bibata-cursors
     waybar
     mako
     rofi-wayland
     cliphist
-    hyprshot
   ];
-
-
 }

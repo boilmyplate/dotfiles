@@ -125,12 +125,16 @@
 
   programs.light.enable = true;
 
+  # NixOS helper.
   programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/emm/dotfiles/emm-surface";
   };
+  
+  # Enable xwayland.
+  programs.xwayland.enable = true;
 
   # Docker config.
   virtualisation.docker.enable = true;
@@ -150,7 +154,6 @@
     kitty
     docker
     docker-compose
-    xwayland
     stow
   ];
 
