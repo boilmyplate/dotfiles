@@ -31,7 +31,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
+  networking.networkmanager.wifi.powersave = false;
 
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
@@ -83,6 +83,30 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  # Enable thermald.
+  services.thermald.enable = true;
+
+  # TLP optimize battery life.
+  services.tlp = {
+      enable = true;
+      settings = {
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+        CPU_MIN_PERF_ON_AC = 0;
+        CPU_MAX_PERF_ON_AC = 100;
+        CPU_MIN_PERF_ON_BAT = 0;
+        CPU_MAX_PERF_ON_BAT = 90;
+
+       START_CHARGE_THRESH_BAT0 = 40;
+       STOP_CHARGE_THRESH_BAT0 = 90;
+
+      };
+};
 
 
   # Enable touchpad support (enabled default in most desktopManager).
