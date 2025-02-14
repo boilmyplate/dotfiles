@@ -16,7 +16,15 @@
 
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";
+    efiSupport = true;
+    configurationLimit = 50;
+    gfxmodeEfi = "auto";
+    font = "${pkgs.nerd-fonts.fira-mono}/share/fonts/opentype/NerdFonts/FiraMono/FiraMonoNerdFont-Regular.otf";
+    fontSize = 36;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable nix flakes.
