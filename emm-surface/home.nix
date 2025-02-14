@@ -56,10 +56,11 @@
       name = "Gruvbox-Dark";
       package = pkgs.gruvbox-gtk-theme;
     };
-    iconTheme = {
-      name = "Gruvbox-Plus-Dark";
-      package = pkgs.gruvbox-plus-icons;
-    };
+    # icon packs currently broke :(
+    #iconTheme = {
+    #  name = "Gruvbox-Plus-Dark";
+    #  package = pkgs.gruvbox-plus-icons;
+    #};
   };
 
 

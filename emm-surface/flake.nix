@@ -11,12 +11,12 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { self, nixpkgs, home-manager, nvf, ... } @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, nvf, ... } @ inputs: 
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
-    pkgs = inputs.nixpkgs.legacyPackages.${system};
-    pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${system};
+    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs-stable = nixpkgs-stable.legacyPackages.${system};
   in
   {
     nixosConfigurations = { 
@@ -30,6 +30,11 @@
       };
     };
 
-    devShells.${system}.default = import ./shell.nix { inherit pkgs; };
+    devShells = {
+      ${system} = {
+        default = import ./shell.nix { inherit pkgs; };
+        stable = import ./shell.nix { pkgs = pkgs-stable; };
+      };
+    };
   };
 }
