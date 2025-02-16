@@ -29,9 +29,7 @@ xwayland {
 }
 
 
-monitor=,preferred,auto,1
-monitor=DP-3,highrr,auto,1
-monitor=DP-2,preferred,auto-right,1
+monitor=,preferred,auto,auto
 
 
 $terminal = kitty
@@ -125,7 +123,6 @@ input {
     follow_mouse = 1
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-    force_no_accel = true
 
     touchpad {
         natural_scroll = false
@@ -249,4 +246,3 @@ exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CUR
 exec-once = waybar
 exec-once=xwaylandvideobridge
 exec-once = mako
-
