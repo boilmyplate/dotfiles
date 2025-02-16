@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
       ./hyprland.nix
       ./nvf-configuration.nix
       ./greetd.nix
