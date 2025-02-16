@@ -1,3 +1,4 @@
 nixos
 .git
+.gitignore
 README.*
