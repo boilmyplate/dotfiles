@@ -9,9 +9,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf.url = "github:notashelf/nvf";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, nvf, ... } @ inputs: 
+  outputs = { nixpkgs, nixpkgs-stable, home-manager, nvf, lanzaboote, ... } @ inputs: 
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -34,6 +38,7 @@
 	  ./hosts/desktop/configuration.nix         
           home-manager.nixosModules.home-manager 
 	  nvf.nixosModules.default
+          lanzaboote.nixosModules.lanzaboote
 	];
       };
     };

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, pkgs-stable, ... }:
+{ config, lib, inputs, pkgs, pkgs-stable, ... }:
 
 {
   imports =
@@ -16,8 +16,17 @@
 
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  # Lanzaboote currently replaces the systemd-boot module.
+  # This setting is usually set to true in configuration.nix
+  # generated at installation time. So we force it to false
+  # for now.
+  boot.loader.systemd-boot.enable = lib.mkForce false;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
 
   # Enable nix flakes.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -154,6 +163,7 @@
     docker
     docker-compose
     stow
+    sbctl # for enabling secure boot
   ];
 
   fonts.packages = with pkgs; [
