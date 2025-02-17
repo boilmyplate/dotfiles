@@ -1,0 +1,7 @@
+keys:
+  - &emm age19c6xghp9zps3xy3kf8kynp6rysyxfe9rwlvrz6zy3f3j45aj7sts88eczu
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+      - age:
+        - *emm
