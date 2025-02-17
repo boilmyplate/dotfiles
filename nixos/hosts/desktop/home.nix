@@ -24,6 +24,8 @@
     zoxide
     gruvbox-gtk-theme
     gruvbox-kvantum
+    onedrive
+    keepassxc
   ];
 
 
