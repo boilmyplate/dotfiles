@@ -13,9 +13,10 @@
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, home-manager, nvf, lanzaboote, ... } @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, nvf, lanzaboote, sops-nix, ... } @ inputs: 
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -39,6 +40,7 @@
           home-manager.nixosModules.home-manager 
 	  nvf.nixosModules.default
           lanzaboote.nixosModules.lanzaboote
+          sops-nix.nixosModules.sops
 	];
       };
     };
