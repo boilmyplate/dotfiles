@@ -28,17 +28,9 @@
       nixos = lib.nixosSystem {
 	specialArgs = { inherit inputs system; };
         modules = [
-	  ./hosts/default/configuration.nix         
-	  nvf.nixosModules.default
-          
+	  ./hosts/default/configuration.nix
           home-manager.nixosModules.home-manager
-         {
-           home-manager.useGlobalPkgs = true;
-           home-manager.useUserPackages = true;
-
-           home-manager.extraSpecialArgs = { inherit inputs; };
-           home-manager.users.emm = import ./hosts/default/home.nix;
-         }
+	  nvf.nixosModules.default
 	];
       };
       emm-surface = lib.nixosSystem {

@@ -14,11 +14,12 @@
     # misc
     wl-clipboard
     bluetui
+    docker-compose
 
     # IDE
     vscode
   ];
 
-  programs.zoxide.enable = true;
+  programs.firefox.enable = true;
   services.udiskie.enable = true;
 }

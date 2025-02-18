@@ -8,9 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./hyprland.nix
-      ./nvf-configuration.nix
-      ./greetd.nix
+      ../../modules
     ];
 
 
@@ -96,6 +94,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.emm = {
     isNormalUser = true;
@@ -106,31 +105,16 @@
     ];
   };
 
+  programs.zsh.enable = true;
+  users.users.emm.shell = pkgs.zsh;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      "emm" = import ./home.nix;
-    };
+    users.emm = import ./home.nix;
     useGlobalPkgs = true;
+    useUserPackages = true;
     backupFileExtension = "backup";
   };
-
-  
-  qt = {
-    enable = true;
-    platformTheme = "qt5ct";
-    style = "kvantum";
-  };
-
-
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Install starship.
-  programs.starship.enable = true;
-  programs.starship.presets = [ "nerd-font-symbols" ];
-
 
   # NixOS helper.
   programs.nh = {
@@ -140,9 +124,6 @@
     flake = "/home/emm/dotfiles/nixos";
   };
   
-  # Enable xwayland.
-  programs.xwayland.enable = true;
-
   # Docker config.
   virtualisation.docker.enable = true;
   virtualisation.docker.rootless = {
@@ -158,9 +139,6 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    kitty
-    docker
-    docker-compose
     stow
     sbctl # for enabling secure boot
   ];
@@ -169,14 +147,6 @@
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
   ];
-
-  environment.sessionVariables = {
-    # If cursor becomes invisible.
-    #WLR_NO_HARDWARE_CURSORS = "1";
-    # Hint electron apps to use wayland.
-    #NIXOS_OZONE_WL = "1";
-    EDITOR = "nvim";
-  };
 
   hardware = {
     graphics.enable = true;

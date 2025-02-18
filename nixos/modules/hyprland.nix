@@ -9,6 +9,9 @@
     xwayland.enable = true;
     withUWSM = true;
   };
+  # Enable xwayland.
+  programs.xwayland.enable = true;
+
 
   environment.systemPackages = with pkgs; [
     hyprpaper
