@@ -13,8 +13,11 @@
  
     # misc
     wl-clipboard
-    bluetui
+    bluetui 
+
+    # container
     docker-compose
+    lazydocker
 
     # IDE
     vscode

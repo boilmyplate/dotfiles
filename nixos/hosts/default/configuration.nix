@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules/nixos
+      ../../modules
     ];
 
 
@@ -20,7 +20,7 @@
     configurationLimit = 50;
     gfxmodeEfi = "auto";
     font = "${pkgs.nerd-fonts.fira-mono}/share/fonts/opentype/NerdFonts/FiraMono/FiraMonoNerdFont-Regular.otf";
-    fontSize = 36;
+    fontSize = 26;
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -132,14 +132,13 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Install starship.
-  programs.starship.enable = true;
-  programs.starship.presets = [ "nerd-font-symbols" ];
-
-  programs.light.enable = true;
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users.emm = import ./home.nix;
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "backup";
+  };
 
   # NixOS helper.
   programs.nh = {
@@ -147,17 +146,14 @@
     clean.enable = true;
     clean.extraArgs = "--keep-since 5d";
     flake = "/home/emm/dotfiles/nixos";
-  };
-  
-  # Enable xwayland.
-  programs.xwayland.enable = true;
+  }; 
 
   # Docker config.
   virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
+        #virtualisation.docker.rootless = {
+        #  enable = true;
+        #  setSocketVariable = true;
+        #};
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -167,9 +163,6 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    kitty
-    docker
-    docker-compose
     stow
   ];
 

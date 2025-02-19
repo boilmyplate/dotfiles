@@ -26,7 +26,8 @@
   {
     nixosConfigurations = { 
       nixos = lib.nixosSystem {
-	specialArgs = { inherit inputs system; };
+        inherit system;
+	specialArgs = { inherit inputs system pkgs-stable; };
         modules = [
 	  ./hosts/default/configuration.nix
           home-manager.nixosModules.home-manager
@@ -34,6 +35,7 @@
 	];
       };
       emm-surface = lib.nixosSystem {
+        inherit system;
 	specialArgs = { inherit inputs system pkgs-stable; };
         modules = [
 	  ./hosts/surface/configuration.nix         
@@ -42,6 +44,7 @@
 	];
       };
       emm-desktop = lib.nixosSystem {
+        inherit system;
 	specialArgs = { inherit inputs system pkgs-stable; };
         modules = [
 	  ./hosts/desktop/configuration.nix         

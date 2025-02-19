@@ -105,9 +105,6 @@
     ];
   };
 
-  programs.zsh.enable = true;
-  users.users.emm.shell = pkgs.zsh;
-
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users.emm = import ./home.nix;

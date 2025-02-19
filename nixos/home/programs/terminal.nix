@@ -1,17 +1,42 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-  programs.kitty.enable = true;
+  programs.kitty = {
+    enable = true;
+    themeFile = "GruvboxMaterialDarkSoft";
+    font = {
+      name = "FiraMono Nerd Font";
+      package = pkgs.nerd-fonts.fira-mono;
+    };
 
-  home.shell.enableZshIntegration = true;
-  programs.zsh.enable = true;
-  programs.zsh.autosuggestion.enable = true;
+    settings = {
+      enable_audio_bell = false;
+      background_opacity = "0.94";
+    };
+  };
+
+  home.shell.enableBashIntegration = true;
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    profileExtra = "
+      if uwsm check may-start; then\n
+        exec uwsm start hyprland-uwsm.desktop\n
+      fi
+    ";
+    initExtra = lib.mkOrder 2000
+      ''
+        eval "$(${lib.getExe pkgs.zoxide} init bash)"
+      '';
+  };
+
   programs.starship.enable = true;
-  programs.starship.enableZshIntegration = true;
-  #programs.starship.presets = [ "nerd-font-symbols" ];
-
   programs.zoxide.enable = true;
-  programs.zoxide.enableZshIntegration = true;
+  programs.eza = {
+    enable = true;
+    git = true;
+    icons = "auto";
+  };
 
   home.sessionVariables = {
     EDITOR = "nvim";
