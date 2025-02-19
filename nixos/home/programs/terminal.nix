@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.kitty = {
     enable = true;
     themeFile = "GruvboxMaterialDarkHard";
@@ -12,6 +14,15 @@
     settings = {
       enable_audio_bell = false;
       background_opacity = "0.94";
+      modify_font = ''
+        underline_position 2
+        modify_font underline_thickness 300%
+      '';
+
+      map = ''
+        ctrl+tab                send_text all \x1b[9;5u
+        map ctrl+shift+tab          send_text all \x1b[9;6u
+      '';
     };
   };
 
@@ -25,7 +36,8 @@
         exec uwsm start hyprland-uwsm.desktop\n
       fi
     ";
-    initExtra = lib.mkOrder 2000
+    initExtra =
+      lib.mkOrder 2000
       ''
         eval "$(${lib.getExe pkgs.zoxide} init bash)"
       '';
@@ -40,7 +52,7 @@
     autosuggestion.strategy = ["completion"];
     defaultKeymap = "emacs";
 
-    prezto.enable = true; 
+    prezto.enable = true;
   };
 
   programs.starship.enable = true;

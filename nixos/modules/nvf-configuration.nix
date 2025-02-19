@@ -31,12 +31,12 @@
         filetree.nvimTree.mappings.toggle = "\\";
         tabline.nvimBufferline.enable = true;
         tabline.nvimBufferline.mappings = {
-          closeCurrent = "<leader>bw";
+          closeCurrent = "<leader><c-w>";
+          cycleNext = "<c-tab>";
+          cyclePrevious = "<c-s-tab>";
         };
         tabline.nvimBufferline.setupOpts.options = {
-          separator_style = "slant";
-          indicator.style = "underline";
-          indicator.icon = "  ";
+          separator_style = "slope";
           numbers = "none";
         };
 
