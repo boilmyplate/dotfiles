@@ -16,52 +16,56 @@
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, nvf, lanzaboote, sops-nix, ... } @ inputs: 
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-stable,
+    home-manager,
+    nvf,
+    lanzaboote,
+    sops-nix,
+    ...
+  } @ inputs: let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-stable = nixpkgs-stable.legacyPackages.${system};
-  in
-  {
-    nixosConfigurations = { 
+  in {
+    nixosConfigurations = {
       nixos = lib.nixosSystem {
         inherit system;
-	specialArgs = { inherit inputs system pkgs-stable; };
+        specialArgs = {inherit inputs system pkgs-stable;};
         modules = [
-	  ./hosts/default/configuration.nix
+          ./hosts/default/configuration.nix
           home-manager.nixosModules.home-manager
-	  nvf.nixosModules.default
-	];
+          nvf.nixosModules.default
+        ];
       };
       emm-surface = lib.nixosSystem {
         inherit system;
-	specialArgs = { inherit inputs system pkgs-stable; };
+        specialArgs = {inherit inputs system pkgs-stable;};
         modules = [
-	  ./hosts/surface/configuration.nix         
-          home-manager.nixosModules.home-manager 
-	  nvf.nixosModules.default
-	];
+          ./hosts/surface/configuration.nix
+          home-manager.nixosModules.home-manager
+          nvf.nixosModules.default
+        ];
       };
       emm-desktop = lib.nixosSystem {
         inherit system;
-	specialArgs = { inherit inputs system pkgs-stable; };
+        specialArgs = {inherit inputs system pkgs-stable;};
         modules = [
-	  ./hosts/desktop/configuration.nix         
-          home-manager.nixosModules.home-manager 
-	  nvf.nixosModules.default
+          ./hosts/desktop/configuration.nix
+          home-manager.nixosModules.home-manager
+          nvf.nixosModules.default
           lanzaboote.nixosModules.lanzaboote
           sops-nix.nixosModules.sops
-	];
+        ];
       };
     };
 
-
-    devShells = {
-      ${system} = {
-        default = import ./shell.nix { inherit pkgs; };
-        stable = import ./shell.nix { pkgs = pkgs-stable; };
-      };
+    devShells.${system} = {
+      default = import ./shell.nix {inherit pkgs;};
+      stable = import ./shell.nix {pkgs = pkgs-stable;};
     };
   };
 }
