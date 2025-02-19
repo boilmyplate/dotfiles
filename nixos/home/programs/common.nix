@@ -15,10 +15,6 @@
     wl-clipboard
     bluetui 
 
-    # container
-    docker-compose
-    lazydocker
-
     # IDE
     vscode
   ];

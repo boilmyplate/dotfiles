@@ -8,9 +8,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules
     ];
 
+  # Enable podman/docker.
+  container.enable = true;
 
   # Bootloader.
   # Lanzaboote currently replaces the systemd-boot module.
@@ -99,7 +100,7 @@
   users.users.emm = {
     isNormalUser = true;
     description = "emm";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "podman" ];
     packages = with pkgs; [
     
     ];
@@ -122,13 +123,6 @@
     flake = "/home/emm/dotfiles/nixos";
   };
   
-  # Docker config.
-  virtualisation.docker.enable = true;
-  # virtualisation.docker.rootless = {
-  #   enable = true;
-  #   setSocketVariable = true;
-  # };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

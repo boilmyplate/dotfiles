@@ -37,6 +37,7 @@
         specialArgs = {inherit inputs system pkgs-stable;};
         modules = [
           ./hosts/default/configuration.nix
+          ./modules
           home-manager.nixosModules.home-manager
           nvf.nixosModules.default
         ];
@@ -46,6 +47,7 @@
         specialArgs = {inherit inputs system pkgs-stable;};
         modules = [
           ./hosts/surface/configuration.nix
+          ./modules
           home-manager.nixosModules.home-manager
           nvf.nixosModules.default
         ];
@@ -55,6 +57,7 @@
         specialArgs = {inherit inputs system pkgs-stable;};
         modules = [
           ./hosts/desktop/configuration.nix
+          ./modules
           home-manager.nixosModules.home-manager
           nvf.nixosModules.default
           lanzaboote.nixosModules.lanzaboote
