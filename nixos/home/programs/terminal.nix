@@ -3,28 +3,7 @@
   lib,
   ...
 }: {
-  programs.kitty = {
-    enable = true;
-    themeFile = "GruvboxMaterialDarkHard";
-    font = {
-      name = "FiraMono Nerd Font";
-      package = pkgs.nerd-fonts.fira-mono;
-    };
-
-    settings = {
-      enable_audio_bell = false;
-      background_opacity = "0.94";
-      modify_font = ''
-        underline_position 2
-        modify_font underline_thickness 300%
-      '';
-
-      map = ''
-        ctrl+tab                send_text all \x1b[9;5u
-        map ctrl+shift+tab          send_text all \x1b[9;6u
-      '';
-    };
-  };
+  home.packages = with pkgs; [kitty];
 
   # bash shell
   home.shell.enableBashIntegration = true;
