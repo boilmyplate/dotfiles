@@ -3,7 +3,7 @@
 {
   programs.kitty = {
     enable = true;
-    themeFile = "GruvboxMaterialDarkSoft";
+    themeFile = "GruvboxMaterialDarkHard";
     font = {
       name = "FiraMono Nerd Font";
       package = pkgs.nerd-fonts.fira-mono;
@@ -15,6 +15,7 @@
     };
   };
 
+  # bash shell
   home.shell.enableBashIntegration = true;
   programs.bash = {
     enable = true;
@@ -28,6 +29,18 @@
       ''
         eval "$(${lib.getExe pkgs.zoxide} init bash)"
       '';
+  };
+
+  # zsh
+  home.shell.enableZshIntegration = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    autosuggestion.strategy = ["completion"];
+    defaultKeymap = "emacs";
+
+    prezto.enable = true; 
   };
 
   programs.starship.enable = true;
@@ -46,5 +59,8 @@
 
   home.shellAliases = {
     ndev = "nix develop /home/emm/dotfiles/nixos";
+    nix = "noglob nix";
+    lg = "lazygit";
+    ldock = "lazydocker";
   };
 }

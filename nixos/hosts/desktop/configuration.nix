@@ -90,10 +90,10 @@
     #media-session.enable = true;
   };
 
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.emm = {
@@ -103,6 +103,7 @@
     packages = with pkgs; [
     
     ];
+    shell = pkgs.zsh;
   };
 
   home-manager = {
@@ -117,16 +118,16 @@
   programs.nh = {
     enable = true;
     clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
+    clean.extraArgs = "--keep-since 5d";
     flake = "/home/emm/dotfiles/nixos";
   };
   
   # Docker config.
   virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
+  # virtualisation.docker.rootless = {
+  #   enable = true;
+  #   setSocketVariable = true;
+  # };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

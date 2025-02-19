@@ -21,6 +21,7 @@
 
         theme = {
           enable = true;
+          transparent = true;
           name = "gruvbox";
           style = "dark";
         };
