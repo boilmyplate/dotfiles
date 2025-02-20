@@ -17,6 +17,9 @@
 
     # IDE
     vscode
+
+    # pw manager
+    keepassxc
   ];
 
   programs.firefox.enable = true;
