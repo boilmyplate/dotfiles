@@ -9,7 +9,8 @@
     # utils
     htop
     ripgrep
-    nautilus
+    xfce.thunar
+    xarchiver
  
     # misc
     wl-clipboard
