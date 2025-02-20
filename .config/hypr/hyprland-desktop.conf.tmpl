@@ -32,9 +32,8 @@ xwayland {
 }
 
 
-monitor=,preferred,auto,1
-monitor=DP-3,highrr,auto,1
-monitor=DP-2,preferred,auto-right,1
+monitor = DP-3, highrr, 0x0, 1
+monitor = DP-2, preferred, 1920x0, 1
 
 
 $terminal = kitty
@@ -240,10 +239,13 @@ windowrulev2 = float, title:^(Picture-in-Picture)$ # firefox pip
 # Fix some dragging issues with XWayland
 windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
 
-
+# Pavucontrol stay float
 windowrulev2 = float, class:^(org.pulseaudio.pavucontrol)$
 windowrulev2 = size 60% 50%, class:^(org.pulseaudio.pavucontrol)$
 windowrulev2 = stayfocused, floating:1, class:^(org.pulseaudio.pavucontrol)$
+
+# mpv float
+windowrulev2 = float, class:^(mpv)$
 
 # xwaylandvideobridge
 windowrulev2 = opacity 0.0 override, class:^(xwaylandvideobridge)$
