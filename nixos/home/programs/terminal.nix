@@ -10,15 +10,14 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    profileExtra = "
-      if uwsm check may-start; then\n
-        exec uwsm start hyprland-uwsm.desktop\n
-      fi
-    ";
     initExtra =
-      lib.mkOrder 2000
+      # lib.mkOrder 2000
+      # eval "$(${lib.getExe pkgs.zoxide} init bash)"
       ''
-        eval "$(${lib.getExe pkgs.zoxide} init bash)"
+        if test -n "$KITTY_INSTALLATION_DIR"; then
+          export KITTY_SHELL_INTEGRATION="enabled"
+          source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"
+        fi
       '';
   };
 
@@ -32,6 +31,14 @@
     defaultKeymap = "emacs";
 
     prezto.enable = true;
+    initExtra = ''
+      if test -n "$KITTY_INSTALLATION_DIR"; then
+        export KITTY_SHELL_INTEGRATION="enabled"
+        autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
+        kitty-integration
+        unfunction kitty-integration
+      fi
+    '';
   };
 
   programs.starship.enable = true;
