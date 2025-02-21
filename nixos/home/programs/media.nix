@@ -15,7 +15,7 @@
       # General
       keep-open = "yes";
       save-position-on-quit = "yes";
-      autofit = "60%";
+      autofit = "69%";
       cursor-autohide = 500;
 
       # OSD
