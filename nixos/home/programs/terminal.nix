@@ -32,6 +32,8 @@
 
     prezto.enable = true;
     initExtra = ''
+      export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
+
       if test -n "$KITTY_INSTALLATION_DIR"; then
         export KITTY_SHELL_INTEGRATION="enabled"
         autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
@@ -56,7 +58,7 @@
   };
 
   home.shellAliases = {
-    ndev = "nix develop /home/emm/dotfiles/nixos";
+    ndev = "nix develop /home/emm/dotfiles/nixos -c zsh";
     nix = "noglob nix";
     lg = "lazygit";
     ldock = "lazydocker";
