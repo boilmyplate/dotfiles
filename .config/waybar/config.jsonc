@@ -1,17 +1,21 @@
 {
   "layer": "top",
-  "height": 32,
-  "spacing": 6,
+  //"height": 32,
+  //"spacing": 6,
 
 
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces", "custom/arrow1", "hyprland/window"],
   "modules-right": [
+    "custom/arrow2",
     "pulseaudio",
     "network",
+    "custom/arrow3",
     "cpu",
     "memory",
     "battery",
-    "clock",
+    "custom/arrow4",
+    "clock#date",
+    "clock#time",
     "tray"
   ],
 
@@ -21,25 +25,26 @@
   },
 
   "hyprland/workspaces": {
-    "format": "{icon}   {windows}",
+    "format": "{icon}",
     "on-scroll-up": "previous",
     "on-scroll-down": "next",
     "sort-by": "id",
-    "window-rewrite-default": "",
-    "window-rewrite": {
-      "class<firefox>": "",
-      "class<Chromium-browser>": "",
-      "class<pavucontrol>": "",
-      "class<kitty>": "",
-      "class<code>": "",
-      "class<steam>": "",
-      "class<webcord>": "",
-      "class<spotify>": "",
-      "class<keepassxc>": "",
-      "class<nautilus>": "",
-      "class<Gimp-2.10>": "",
-      "class<com.obsproject.Studio>": ""
-    },
+    //"window-rewrite-default": "",
+    //"window-rewrite": {
+    //  "class<firefox>": "",
+    //  "class<Chromium-browser>": "",
+    //  "class<pavucontrol>": "",
+    //  "class<kitty>": "",
+    //  "class<code>": "",
+    //  "class<steam>": "",
+    //  "class<webcord>": "",
+    //  "class<spotify>": "",
+    //  "class<keepassxc>": "",
+    //  "class<thunar>": "",
+    //  "class<Gimp-2.10>": "",
+    //  "class<com.obsproject.Studio>": "",
+    //  "class<mpv>": ""
+    //},
     "format-icons": {
       "6": "1",
       "7": "2",
@@ -49,14 +54,22 @@
     }
   },
   "tray": {
-    "spacing": 10
+    "spacing": 4
   },
-  "clock": {
-    "interval": 1,
-    "format": "{:%I:%M:%S %p} "
+  "clock#time": {
+    "interval": 10,
+    "format": "{:%H:%M} ",
+    "tooltip": false,
+    "min-length": 10
+  },
+  "clock#date": {
+    "interval": 60,
+    "format": "{:%a %e/%m } ",
+    "onclick": "karlender",
+    "min-length": 10
   },
   "battery": {
-    "interval": 60,
+    "interval": 10,
     "states": {
         "warning": 30,
         "critical": 15
@@ -71,7 +84,8 @@
     "states": {
       "warning": 80,
       "critical": 90
-    }
+    },
+    "min-length": 10
   },
   "memory": {
     "format": "RAM {used:0.1f} GB ",
@@ -79,14 +93,16 @@
     "states": {
       "warning": 80,
       "critical": 90
-    }
+    },
+    "min-length": 15
   },
   "network": {
     "interval": 2,
     "format-wifi": " {bandwidthDownBits} |  {bandwidthUpBits} ",
     "format-ethernet": " {bandwidthDownBits} |  {bandwidthUpBits} ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "min-length": 22
   },
   "pulseaudio": {
     "scroll-step": 5,
@@ -97,6 +113,23 @@
     "format-icons": {
       "default": ["", "", ""]
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
+    "min-length": 14
+  },
+  "custom/arrow1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/arrow2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/arrow3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/arrow4": {
+    "format": "",
+    "tooltip": false
   }
 }

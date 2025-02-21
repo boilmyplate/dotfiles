@@ -1,60 +1,93 @@
+/* -----------------------------------------------------------------------------
+ * Styles
+ * -------------------------------------------------------------------------- */
+
+/* COLORS */
+
+/* Gruvbox Dark */
+
+@define-color light #D8DEE9;
+@define-color warning #c9545d;
+@define-color bg #282828;
+@define-color critical #BF616A;
+@define-color tray @bg;
+@define-color mode @bg;
+
+@define-color font_gruv_normal #ebdbb2;
+@define-color font_gruv_faded #a89985;
+@define-color font_gruv_darker #D8DEE9;
+@define-color font_dark_alternative #655b53;
+
+@define-color gruv_green_normal #2c916f;
+@define-color gruv_green_faded #24785c;
+@define-color gruv_green_darker #1a5742;
+
+
 * {
+  border: none;
+  border-radius: 0px;
+  min-height: 0;
+
   font-family: Inter, "Font Awesome 6 Free";
   font-size: 12px;
+  font-weight: bold;
 }
 
-window#waybar {
-  background-color: rgba(43, 48, 59, 0.5);
-  border-bottom: 1px solid rgba(100, 114, 125, 0.5);
-  color: #ffffff;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  padding: 20px;
+#waybar {
+  background-color: @bg;
+  color: @font_gruv_normal;
 }
 
-window#waybar.hidden {
-  opacity: 0.2;
+
+#window {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight: normal;
 }
+
+/*window#waybar.hidden {*/
+/*  opacity: 0.2;*/
+/*}*/
 
 button {
   /* Use box-shadow instead of border so the text isn't offset */
   box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each button name */
-  border: none;
-  border-radius: 0;
 }
 
 button:hover {
   background: inherit;
-  box-shadow: inset 0 -3px #ffffff;
+  box-shadow: inset 0 -3px @font_gruv_darker;
 }
 
 #workspaces button {
-  padding: 0 10px;
-  background-color: transparent;
-  color: #ffffff;
+  padding: 0 1.2em;
+  min-width: 0em;
+  background-color: @gruv_green_normal;
+  color: @font_gruv_darker;
 }
 
-#workspaces button:hover {
-  background: rgba(0, 0, 0, 0.2);
-}
+/*#workspaces button:hover {*/
+/*  background: @bg;*/
+/*  color: #FFFFFF;*/
+/*}*/
 
 #workspaces button.active {
-  background-color: #98971a;
-  box-shadow: inset 0 -3px #ffffff;
+  background-color: @gruv_green_normal;
+  color: @font_gruv_darker;
+  box-shadow: inset 0 -3px @font_gruv_darker;
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  background-color: @warning;
 }
 
-.module:not(#workspaces) {
-  padding: 0 10px;
-  border-radius: 4px;
-  color: #ffffff;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
+/*.module:not(#workspaces) {*/
+/*  padding: 0 10px;*/
+/*  border-radius: 4px;*/
+/*  color: #ffffff;*/
+/*  margin-top: 5px;*/
+/*  margin-bottom: 5px;*/
+/*}*/
 
 .warning {
   animation: blink 0.4s linear infinite alternate;
@@ -65,39 +98,68 @@ button:hover {
   animation: red-blink 0.4s linear infinite alternate;
 }
 
+#custom-arrow1 {
+  font-size: 1.5rem;
+  color: @gruv_green_normal;
+  background: @bg;
+}
+
+#custom-arrow2 {
+  font-size: 1.5rem;
+  color: @font_dark_alternative;
+  background: @bg;
+}
+
+#custom-arrow3 {
+  font-size: 1.5rem;
+  color: @gruv_green_normal;
+  background: @font_dark_alternative;
+}
+
+#custom-arrow4 {
+  font-size: 1.5rem;
+  color: @bg;
+  background: @gruv_green_normal;
+}
+
 /* https://colordesigner.io/gradient-generator/?mode=lch#3633FF-B442FF */
 #clock {
-  background-color: #665c54;
-  min-width: 110px;
+  background-color: @bg;
+  /*min-width: 8em;*/
 }
 
 #battery {
   background-color: #b57614;
-  min-width: 50px;
+  /*min-width: 50px;*/
 }
 
 #memory {
-  background-color: #bdae93;
+  background-color: @gruv_green_normal;
+  /*min-width: 10em;*/
 }
 
 #cpu {
-  background-color: #d65d0e;
-  color: #000000;
+  background-color: @gruv_green_normal;
+  /*min-width: 8em;*/
 }
 
 #network {
-  background-color: #79740e;
-  min-width: 160px;
+  background-color: @font_dark_alternative;
+  /*min-width: 15em;*/
 }
 
 #pulseaudio {
-  background-color: #427b58;
-  color: #000000;
+  background-color: @font_dark_alternative;
+  /*min-width: 10em;*/
 }
 
 #custom-media {
   background-color: #b442ff;
-  min-width: 100px;
+  /*min-width: 100px;*/
+}
+
+#tray {
+  margin-right: 1em;
 }
 
 #tray > .passive {
