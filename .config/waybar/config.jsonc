@@ -29,6 +29,10 @@
     "on-scroll-up": "previous",
     "on-scroll-down": "next",
     "sort-by": "id",
+    "persistent-workspaces": {
+      "DP-3": [1,2,3],
+      "DP-2": [6,7,8]
+    },
     //"window-rewrite-default": "",
     //"window-rewrite": {
     //  "class<firefox>": "",
@@ -85,7 +89,7 @@
       "warning": 80,
       "critical": 90
     },
-    "min-length": 10
+    "min-length": 12
   },
   "memory": {
     "format": "RAM {used:0.1f} GB ",
@@ -94,7 +98,7 @@
       "warning": 80,
       "critical": 90
     },
-    "min-length": 15
+    "min-length": 16
   },
   "network": {
     "interval": 2,
@@ -102,19 +106,19 @@
     "format-ethernet": " {bandwidthDownBits} |  {bandwidthUpBits} ",
     "format-disconnected": "Disconnected ⚠",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "min-length": 22
+    "min-length": 26
   },
   "pulseaudio": {
     "scroll-step": 5,
-    "format": "{volume}% {icon}   {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
+    "format": "{icon}   {volume}%  {format_source}",
+    "format-muted": "  {format_source}",
+    "format-source": "",
+    "format-source-muted": "<span color=\"#fb4833\"></span>",
     "format-icons": {
       "default": ["", "", ""]
     },
     "on-click": "pavucontrol",
-    "min-length": 14
+    "min-length": 12
   },
   "custom/arrow1": {
     "format": "",
