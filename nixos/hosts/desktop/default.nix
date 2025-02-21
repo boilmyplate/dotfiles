@@ -12,14 +12,12 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/system.nix
+    ../../modules/services/container.nix
+    ../../modules/services/onedrive.nix
+
+    ../../modules/programs/weeb.nix
   ];
 
-  # Enable podman/docker.
-  container.enable = true;
-
-  # Stream anime.
-  weeb.enable = true;
 
   # Bootloader.
   # Lanzaboote currently replaces the systemd-boot module.

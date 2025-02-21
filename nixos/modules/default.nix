@@ -1,11 +1,10 @@
 {
   imports = [
-    ./greetd.nix
-    ./hyprland.nix
-    ./nvf-configuration.nix
+    ./system.nix
 
-    ./conditional/weeb.nix
-    ./conditional/container.nix
-    ./conditional/power.nix
+    ./services/greetd.nix
+
+    ./programs/hyprland.nix
+    ./programs/nvf-configuration.nix
   ];
 }
