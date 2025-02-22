@@ -4,6 +4,9 @@
   home.packages = with pkgs; [
     pavucontrol
     playerctl
+    
+    spotifyd
+    spotify-player
   ];
 
   programs.mpv = {
