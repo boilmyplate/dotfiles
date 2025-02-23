@@ -31,8 +31,8 @@
     defaultKeymap = "emacs";
 
     prezto.enable = true;
+    # export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
     initExtra = ''
-      export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
 
       if test -n "$KITTY_INSTALLATION_DIR"; then
         export KITTY_SHELL_INTEGRATION="enabled"
