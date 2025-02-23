@@ -15,6 +15,7 @@
     # misc
     wl-clipboard
     bluetui 
+    karlender
 
     # IDE
     vscode
