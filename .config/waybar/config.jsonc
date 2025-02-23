@@ -62,15 +62,16 @@
   },
   "clock#time": {
     "interval": 10,
-    "format": "{:%H:%M} ",
+    "format": "{:%H:%M}  ",
     "tooltip": false,
     "min-length": 10
   },
   "clock#date": {
     "interval": 60,
-    "format": "{:%a %e/%m } ",
-    "onclick": "karlender",
-    "min-length": 10
+    "format": "{:%a %e/%m }  ",
+    "on-click": "karlender",
+    "tooltip": false,
+    "min-length": 14
   },
   "battery": {
     "interval": 10,
@@ -79,12 +80,12 @@
         "critical": 15
     },
     "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󰢞",
-    "format-icons": ["", "", "", "", ""],
+    "format-charging": "{capacity}% 󰢞 ",
+    "format-icons": [" ", " ", " ", " ", " "],
     "max-length": 25
   },
   "cpu": {
-    "format": "CPU {usage}% ",
+    "format": "CPU {usage}%  ",
     "states": {
       "warning": 80,
       "critical": 90
@@ -92,7 +93,7 @@
     "min-length": 12
   },
   "memory": {
-    "format": "RAM {used:0.1f} GB ",
+    "format": "RAM {used:0.1f} GB  ",
     "tooltip-format": "{used:0.1f}GB / {total:0.1f}GB",
     "states": {
       "warning": 80,
@@ -102,8 +103,8 @@
   },
   "network": {
     "interval": 2,
-    "format-wifi": " {bandwidthDownBits} |  {bandwidthUpBits} ",
-    "format-ethernet": " {bandwidthDownBits} |  {bandwidthUpBits} ",
+    "format-wifi": " {bandwidthDownBits} |  {bandwidthUpBits}   ",
+    "format-ethernet": " {bandwidthDownBits} |  {bandwidthUpBits}   ",
     "format-disconnected": "Disconnected ⚠",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
     "min-length": 26
@@ -113,9 +114,9 @@
     "format": "{icon}   {volume}%  {format_source}",
     "format-muted": "  {format_source}",
     "format-source": "",
-    "format-source-muted": "<span color=\"#fb4833\"></span>",
+    "format-source-muted": "<span color=\"#fb4833\"> </span>",
     "format-icons": {
-      "default": ["", "", ""]
+      "default": ["", " ", " "]
     },
     "on-click": "pavucontrol",
     "min-length": 12

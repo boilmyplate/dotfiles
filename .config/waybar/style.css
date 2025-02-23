@@ -28,7 +28,7 @@
   border-radius: 0px;
   min-height: 0;
 
-  font-family: Inter, "Font Awesome 6 Free";
+  font-family: "Font Awesome 6 Free", Inter;
   font-size: 12px;
   font-weight: bold;
 }
@@ -42,7 +42,6 @@
 #window {
   margin-left: 20px;
   margin-right: 20px;
-  font-weight: normal;
 }
 
 /*window#waybar.hidden {*/
