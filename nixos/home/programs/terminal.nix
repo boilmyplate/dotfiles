@@ -62,6 +62,6 @@
     nix = "noglob nix";
     lg = "lazygit";
     ldock = "lazydocker";
-    spt = "spotify_player -d && spotify_player";
+    spt = "spotify_player -d ; spotify_player";
   };
 }
