@@ -16,8 +16,8 @@ env = GDK_SCALE,1
 
 env = MOZ_ENABLE_WAYLAND,1
 
-env = OZONE_PLATFORM,wayland
-env = ELECTRON_OZONE_PLATFORM_HINT,wayland
+#env = OZONE_PLATFORM,wayland
+#env = ELECTRON_OZONE_PLATFORM_HINT,wayland
 
 
 cursor {
@@ -33,7 +33,7 @@ monitor=,preferred,auto,auto
 
 
 $terminal = kitty
-$fileManager = nautilus
+$fileManager = thunar
 $menu = rofi -show drun -click-to-exit -kb-cancel "Escape,MouseSecondary"
 $browser = firefox
 
@@ -75,7 +75,7 @@ decoration {
     # https://wiki.hyprland.org/Configuring/Variables/#blur
     blur {
         enabled = true
-        size = 3
+        size = 4
         passes = 1
 
         #vibrancy = 0.1696
@@ -214,17 +214,20 @@ bindl = , XF86AudioPlay, exec, playerctl play-pause
 bindl = , XF86AudioPrev, exec, playerctl previous
 
 
-# Ignore maximize requests from apps.
+# Window rules
 windowrulev2 = suppressevent maximize, class:.*
 windowrulev2 = float, title:^(Picture-in-Picture)$ # firefox pip
+windowrulev2 = float, class:^(mpv)$
+windowrulev2 = float, class:^(org.keepassxc.KeePassXC)$
 
-# Fix some dragging issues with XWayland
-windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
-
-
+# Pavucontrol stay float
 windowrulev2 = float, class:^(org.pulseaudio.pavucontrol)$
 windowrulev2 = size 60% 50%, class:^(org.pulseaudio.pavucontrol)$
 windowrulev2 = stayfocused, floating:1, class:^(org.pulseaudio.pavucontrol)$
+
+# floating vs code window
+windowrulev2 = center, floating:1,class:^(Code)$
+windowrulev2 = stayfocused, floating:1,class:^(Code)$
 
 # xwaylandvideobridge
 windowrulev2 = opacity 0.0 override, class:^(xwaylandvideobridge)$
@@ -234,6 +237,9 @@ windowrulev2 = maxsize 1 1, class:^(xwaylandvideobridge)$
 windowrulev2 = noblur, class:^(xwaylandvideobridge)$
 windowrulev2 = nofocus, class:^(xwaylandvideobridge)$
 
+# Fix some dragging issues with XWayland
+windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+
 
 misc {
     vrr = 0
@@ -242,7 +248,7 @@ misc {
     force_default_wallpaper = 0
 }
 
-exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+#exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once = waybar
-exec-once=xwaylandvideobridge
+exec-once = xwaylandvideobridge
 exec-once = mako
