@@ -10,9 +10,9 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
+    ../../modules/services/power.nix
 
-    ../../modules/system.nix
+    ./hardware-configuration.nix
   ];
 
   # Bootloader.
@@ -35,11 +35,10 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = false;
-  services.xserver.desktopManager.gnome.enable = false;
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.emm = {

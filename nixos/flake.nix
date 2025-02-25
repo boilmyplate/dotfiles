@@ -36,7 +36,7 @@
         inherit system;
         specialArgs = {inherit inputs system pkgs-stable;};
         modules = [
-          ./hosts/default/configuration.nix
+          ./hosts/default
           ./modules
           home-manager.nixosModules.home-manager
           nvf.nixosModules.default
@@ -46,7 +46,7 @@
         inherit system;
         specialArgs = {inherit inputs system pkgs-stable;};
         modules = [
-          ./hosts/surface/configuration.nix
+          ./hosts/surface
           ./modules
           home-manager.nixosModules.home-manager
           nvf.nixosModules.default
