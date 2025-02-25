@@ -11,6 +11,7 @@ env = QT_AUTO_SCREEN_SCALE_FACTOR,1
 env = QT_QPA_PLATFORM,wayland;xcb
 env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
 env = QT_QPA_PLATFORMTHEME,qt5ct 
+env = QT_STYLE_OVERRIDE,kvantum
 
 env = GDK_SCALE,1
 
@@ -19,9 +20,10 @@ env = MOZ_ENABLE_WAYLAND,1
 #env = OZONE_PLATFORM,wayland
 #env = ELECTRON_OZONE_PLATFORM_HINT,wayland
 
-env = LIBVA_DRIVER_NAME,nvidia
+env = GBM_BACKEND,nvidia-drm
 env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 
+env = LIBVA_DRIVER_NAME,nvidia
 
 cursor {
     no_hardware_cursors = true
@@ -270,4 +272,5 @@ misc {
 exec-once = waybar
 exec-once = xwaylandvideobridge
 exec-once = mako
+exec-once = hypridle
 
