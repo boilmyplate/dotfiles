@@ -1,15 +1,21 @@
-/* -----------------------------------------------------------------------------
- * Styles
- * -------------------------------------------------------------------------- */
+@keyframes blink-warning {
+  to {
+    background-color: @warning;
+    color: @light;
+  }
+}
 
-/* COLORS */
+@keyframes blink-critical {
+  to {
+    background-color: @critical;
+    color: @light;
+  }
+}
 
-/* Gruvbox Dark */
-
-@define-color light #D8DEE9;
-@define-color warning #c9545d;
+@define-color light #bddbd1;
+@define-color warning #eab308;
 @define-color bg #282828;
-@define-color critical #BF616A;
+@define-color critical #b91c1c;
 @define-color tray @bg;
 @define-color mode @bg;
 
@@ -124,38 +130,31 @@ button:hover {
 /* https://colordesigner.io/gradient-generator/?mode=lch#3633FF-B442FF */
 #clock {
   background-color: @bg;
-  /*min-width: 8em;*/
 }
 
 #battery {
-  background-color: #b57614;
-  /*min-width: 50px;*/
+  background-color: @gruv_green_normal;
 }
 
 #memory {
   background-color: @gruv_green_normal;
-  /*min-width: 10em;*/
 }
 
 #cpu {
   background-color: @gruv_green_normal;
-  /*min-width: 8em;*/
 }
 
 #network {
   background-color: @font_dark_alternative;
-  /*min-width: 15em;*/
 }
 
 #pulseaudio {
   background-color: @font_dark_alternative;
-  /*min-width: 10em;*/
 }
 
-#custom-media {
-  background-color: #b442ff;
-  /*min-width: 100px;*/
-}
+/*#custom-media {*/
+/*  background-color: #b442ff;*/
+/*}*/
 
 #tray {
   margin-right: 1em;
@@ -167,19 +166,6 @@ button:hover {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
+  background-color: @critical;
 }
 
-@keyframes red-blink {
-  to {
-    background-color: #b91c1c;
-    color: #fff;
-  }
-}
-
-@keyframes blink {
-  to {
-    background-color: #eab308;
-    color: #000000;
-  }
-}
