@@ -22,6 +22,9 @@
 
     # pw manager
     keepassxc
+
+    # browser
+    ungoogled-chromium
   ];
 
   programs.firefox.enable = true;
