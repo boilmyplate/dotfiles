@@ -25,6 +25,8 @@
 
     # browser
     ungoogled-chromium
+
+    webcord
   ];
 
   programs.firefox.enable = true;
