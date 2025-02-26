@@ -43,6 +43,7 @@
 
   # Enable zsh.
   programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.emm = {
@@ -50,8 +51,8 @@
     description = "emm";
     extraGroups = ["networkmanager" "wheel" "podman"];
     packages = with pkgs; [
+  
     ];
-    shell = pkgs.zsh;
   };
 
   home-manager = {
