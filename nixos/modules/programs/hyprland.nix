@@ -28,7 +28,6 @@
     hypridle
     hyprlock
     xwaylandvideobridge
-    nwg-look
     bibata-cursors
     waybar
     mako
