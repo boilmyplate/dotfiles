@@ -30,6 +30,7 @@
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/var/lib/sbctl";
+    configurationLimit = 50;
   };
 
   networking.hostName = "emm-desktop"; # Define your hostname.
