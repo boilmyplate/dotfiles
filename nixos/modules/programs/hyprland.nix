@@ -27,7 +27,7 @@
     hyprshot
     hypridle
     hyprlock
-    xwaylandvideobridge
+    libsForQt5.xwaylandvideobridge
     bibata-cursors
     waybar
     mako
