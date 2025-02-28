@@ -24,11 +24,12 @@
     keepassxc
 
     # browser
-    ungoogled-chromium
+    firefox
+    firefox-devedition
 
     webcord
   ];
 
-  programs.firefox.enable = true;
+  #programs.firefox.enable = true;
   services.udiskie.enable = true;
 }
