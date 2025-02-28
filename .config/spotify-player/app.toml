@@ -40,9 +40,9 @@ playlist_percent = 40
 album_percent = 40
 
 [device]
-name = "spotify-player"
+name = "emm-nixos"
 device_type = "speaker"
-volume = 70
+volume = 60
 bitrate = 320
 audio_cache = false
 normalization = false

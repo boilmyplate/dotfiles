@@ -5,7 +5,6 @@
     pavucontrol
     playerctl
     
-    spotifyd
     spotify-player
   ];
 
