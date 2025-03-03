@@ -26,6 +26,7 @@
     # browser
     firefox
     firefox-devedition
+    ungoogled-chromium
 
     webcord
   ];
