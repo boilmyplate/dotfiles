@@ -69,7 +69,11 @@
 
   # NVIDIA
   services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = true;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
