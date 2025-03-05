@@ -1,3 +1,15 @@
+env = WLR_NO_HARDWARE_CURSORS,1
+
+env = XDG_CURRENT_DESKTOP,Hyprland
+env = XDG_SESSION_TYPE,wayland
+env = XDG_SESSION_DESKTOP,Hyprland
+
+env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+env = QT_QPA_PLATFORM,wayland;xcb
+env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+env = QT_QPA_PLATFORMTHEME,qt5ct 
+
+
 cursor {
     no_hardware_cursors = true
 }
@@ -101,6 +113,7 @@ input {
     follow_mouse = 1
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+    #force_no_accel = true
 
     touchpad {
         natural_scroll = false
@@ -204,8 +217,8 @@ windowrulev2 = size 60% 50%, class:^(org.pulseaudio.pavucontrol)$
 windowrulev2 = stayfocused, floating:1, class:^(org.pulseaudio.pavucontrol)$
 
 # floating vs code window
-windowrulev2 = center, floating:1,class:^(Code)$
-windowrulev2 = stayfocused, floating:1,class:^(Code)$
+windowrulev2 = center, floating:1, class:^(code)$
+windowrulev2 = stayfocused, floating:1, class:^(code)$
 
 # xwaylandvideobridge
 windowrulev2 = opacity 0.0 override, class:^(xwaylandvideobridge)$
@@ -227,8 +240,10 @@ misc {
 }
 
 #exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec-once = systemctl --user start hyprpolkitagent
-exec-once = hypridle
 exec-once = waybar
+exec-once = hyprpaper
+exec-once = hypridle
+exec-once = systemctl --user start hyprpolkitagent
 exec-once = xwaylandvideobridge
 exec-once = mako
+
