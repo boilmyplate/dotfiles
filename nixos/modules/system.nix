@@ -6,6 +6,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
+  networking.networkmanager.wifi.macAddress = "random";
 
   # Enable nix flakes.
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -71,6 +72,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+    networkmanagerapplet
     stow
   ];
 
