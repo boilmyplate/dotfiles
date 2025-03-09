@@ -14,6 +14,7 @@
 
     ../../modules/services/container.nix
     ../../modules/services/onedrive.nix
+    # ../../modules/services/ssh.nix
 
     # ../../modules/programs/qemu.nix
     ../../modules/programs/weeb.nix
@@ -83,11 +84,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
