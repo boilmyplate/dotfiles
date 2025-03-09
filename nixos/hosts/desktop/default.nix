@@ -15,6 +15,7 @@
     ../../modules/services/container.nix
     ../../modules/services/onedrive.nix
 
+    # ../../modules/programs/qemu.nix
     ../../modules/programs/weeb.nix
   ];
 
@@ -49,7 +50,7 @@
   users.users.emm = {
     isNormalUser = true;
     description = "emm";
-    extraGroups = ["networkmanager" "wheel" "podman"];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
   
     ];
