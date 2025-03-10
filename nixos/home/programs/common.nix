@@ -19,6 +19,7 @@
 
     # IDE
     vscode
+    jetbrains.idea-community
 
     # pw manager
     keepassxc
@@ -31,6 +32,5 @@
     webcord
   ];
 
-  #programs.firefox.enable = true;
   services.udiskie.enable = true;
 }
