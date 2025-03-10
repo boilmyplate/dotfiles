@@ -12,7 +12,6 @@
     "custom/arrow3",
     "cpu",
     "memory",
-    "battery",
     "custom/arrow4",
     "clock#date",
     "clock#time",
@@ -30,15 +29,16 @@
     "on-scroll-down": "next",
     "sort-by": "id",
     "persistent-workspaces": {
-      "eDP-1": [1,2,3]
+      "DP-3": [1,2,3],
+      "DP-2": [6,7,8]
+    },
+    "format-icons": {
+      "6": "1",
+      "7": "2",
+      "8": "3",
+      "9": "4",
+      "10": "5"
     }
-    //"format-icons": {
-    //  "6": "1",
-    //  "7": "2",
-    //  "8": "3",
-    //  "9": "4",
-    //  "10": "5"
-    //}
   },
   "tray": {
     "spacing": 4
@@ -55,17 +55,6 @@
     "on-click": "karlender",
     "tooltip": false,
     "min-length": 14
-  },
-  "battery": {
-    "interval": 10,
-    "states": {
-        "warning": 20,
-        "critical": 10
-    },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󰢞 ",
-    "format-icons": [" ", " ", " ", " ", " "],
-    "min-length": 10
   },
   "cpu": {
     "format": "CPU {usage}%  ",
@@ -89,7 +78,10 @@
     "format-wifi": " {bandwidthDownBits} |  {bandwidthUpBits}   ",
     "format-ethernet": " {bandwidthDownBits} |  {bandwidthUpBits}   ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    //"format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+    "on-click": "kitty --class dotfiles-float -e nmtui",
+    "on-click-right": "~/.config/emm/scripts/nm-applet.sh toggle",
     "min-length": 26
   },
   "pulseaudio": {
