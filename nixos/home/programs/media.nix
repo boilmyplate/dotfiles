@@ -24,10 +24,9 @@
       osc = "no";
     
       # Video
+      hwdec = "auto";
       vo = "gpu-next";
-      gpu-api = "vulkan";
-
-      hwdec = "nvdec";
+      profile = "gpu-hq";
     };
   };
 }
