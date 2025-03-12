@@ -60,6 +60,13 @@
     backupFileExtension = "backup";
   };
 
+  hardware.graphics = {
+    extraPackages = with pkgs; [
+      intel-media-driver # For Broadwell (2014) or newer processors. LIBVA_DRIVER_NAME=iHD
+    ];
+  };
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
