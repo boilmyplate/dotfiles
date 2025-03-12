@@ -67,10 +67,19 @@
 
   environment.systemPackages = with pkgs; [
     sbctl # for enabling secure boot
+    libva-utils
+    vdpauinfo
   ];
 
   # NVIDIA
   boot.blacklistedKernelModules = [ "nouveau" ];
+  hardware.graphics.extraPackages = with pkgs; [
+    # https://discourse.nixos.org/t/nvidia-open-breaks-hardware-acceleration/58770/2
+    nvidia-vaapi-driver
+    libvdpau
+    libvdpau-va-gl
+    libva
+  ];
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
