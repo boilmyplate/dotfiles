@@ -19,6 +19,7 @@
     # withUWSM = true;
   };
   programs.light.enable = true;
+  users.users.emm.extraGroups = ["video"]; # add user to video group to allow light to run without sudo
 
   environment.systemPackages = with pkgs; [
     hyprpaper
