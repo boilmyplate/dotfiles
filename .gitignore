@@ -3,3 +3,4 @@ config.jsonc
 refresh_token
 *.sqlite
 *.sqlite3
+*.hash
