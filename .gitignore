@@ -1,6 +1,5 @@
 hyprland.conf
 config.jsonc
 refresh_token
-*.sqlite
-*.sqlite3
+*.sqlite*
 *.hash
