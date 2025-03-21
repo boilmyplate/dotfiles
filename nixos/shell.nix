@@ -3,6 +3,8 @@
 pkgs.mkShell {
   packages = with pkgs; [
     nodejs
+    python313
+    jdk17
   ];
 
 
