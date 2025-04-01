@@ -28,8 +28,10 @@
     firefox
     ungoogled-chromium
 
-    webcord
-  ];
+    # electron-32 is EOL
+    # insecure packages allowed in hyprland.nix
+    (webcord.override { electron = electron_32; })
+    ];
 
   services.udiskie.enable = true;
 }
