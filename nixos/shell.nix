@@ -5,6 +5,7 @@ pkgs.mkShell {
     nodejs
     python313
     jdk17
+    postman
   ];
 
 

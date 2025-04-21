@@ -58,7 +58,7 @@
   };
 
   home.shellAliases = {
-    ndev = "nix develop /home/emm/dotfiles/nixos -c zsh";
+    ndev = "nix develop /home/emm/dotfiles/nixos --impure";
     nix = "noglob nix";
     lg = "lazygit";
     ldock = "lazydocker";
