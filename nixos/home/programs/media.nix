@@ -6,6 +6,7 @@
     playerctl
     
     spotify-player
+    obs-studio
   ];
 
   programs.mpv = {
