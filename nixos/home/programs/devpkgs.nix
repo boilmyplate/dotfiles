@@ -19,6 +19,11 @@
     })
     jetbrains.idea-community
 
+    # API testing
     postman
+    bruno
+
+    # DB manager
+    dbeaver-bin
   ];
 }
