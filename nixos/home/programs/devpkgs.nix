@@ -6,15 +6,17 @@
     lazygit
 
     # IDE
-    # vscode wrapper to remove ozone wl flickering
-    # https://discourse.nixos.org/t/overriding-package-with-environment-variable-wrap/22466
+    # vscode wrapper to remedy electron flickering
+    # either hyprland or nvidia problem
+    # https://nixos.wiki/wiki/Nix_Cookbook#Wrapping_packages
+    # https://github.com/hyprwm/Hyprland/issues/7252
     (pkgs.symlinkJoin {
-      name = "vscode-no-ozone";
+      name = "vscode-no-gpu-compositing";
       paths = [ vscode ];
       buildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/code \
-          --unset NIXOS_OZONE_WL
+          --add-flags "--disable-gpu-compositing"
       '';
     })
     jetbrains.idea-community
