@@ -10,13 +10,14 @@
     htop
     ripgrep
     xfce.thunar
+    xfce.mousepad
     xarchiver
  
     # misc
     wl-clipboard
     bluetui 
-    karlender
-
+    xfce.orage
+    
     # pw manager
     keepassxc
 
