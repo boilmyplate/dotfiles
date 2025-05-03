@@ -21,11 +21,6 @@
   programs.light.enable = true;
   users.users.emm.extraGroups = ["video"]; # add user to video group to allow light to run without sudo
 
-  # electron above version 32 screen share broke
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-32.3.3"
-  ];
-
   environment.systemPackages = with pkgs; [
     hyprpaper
     hyprcursor
