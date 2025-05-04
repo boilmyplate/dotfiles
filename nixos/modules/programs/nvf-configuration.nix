@@ -64,6 +64,7 @@
           enableTreesitter = true;
 
           nix.enable = true;
+          nix.lsp.enable = true;
         };
       };
     };
