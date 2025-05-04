@@ -14,10 +14,15 @@ pkgs.mkShell {
     jdk
     jdk17
     php
+    awscli2
+    maven
   ];
 
 
   shellHook = ''
     echo "Nix Shell active!"
+    export PATH=${pinnedPkgs.jdk17}/bin:$PATH
+    export JAVA_HOME=${pinnedPkgs.jdk17}
+    echo "Using JDK 17 from $JAVA_HOME"
   '';
 }
