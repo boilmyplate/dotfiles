@@ -28,5 +28,6 @@
     webcord
     ];
 
+  services.kdeconnect.enable = true;
   services.udiskie.enable = true;
 }
