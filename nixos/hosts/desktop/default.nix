@@ -76,9 +76,9 @@
   hardware.graphics.extraPackages = with pkgs; [
     # https://discourse.nixos.org/t/nvidia-open-breaks-hardware-acceleration/58770/2
     nvidia-vaapi-driver
-    libvdpau
-    libvdpau-va-gl
-    libva
+  #   libvdpau
+  #   libvdpau-va-gl
+  #   libva
   ];
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
