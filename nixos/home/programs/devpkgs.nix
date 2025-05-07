@@ -19,7 +19,6 @@
           --add-flags "--disable-gpu-compositing"
       '';
     })
-    jetbrains.idea-community
 
     # API testing
     postman
