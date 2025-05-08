@@ -59,7 +59,7 @@
         };
 
         languages = {
-          enableLSP = true;
+          lsp.enable = true;
           enableFormat = true;
           enableTreesitter = true;
 
