@@ -58,8 +58,9 @@
           setupOpts.direction = "float";
         };
 
+        lsp.enable = true;
+
         languages = {
-          lsp.enable = true;
           enableFormat = true;
           enableTreesitter = true;
 
