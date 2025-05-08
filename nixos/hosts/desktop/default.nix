@@ -72,6 +72,7 @@
   ];
 
   # NVIDIA
+  nixpkgs.config.cudaSupport = true;
   boot.blacklistedKernelModules = [ "nouveau" ];
   hardware.graphics.extraPackages = with pkgs; [
     # https://discourse.nixos.org/t/nvidia-open-breaks-hardware-acceleration/58770/2
