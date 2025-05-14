@@ -26,5 +26,9 @@
 
     # DB manager
     dbeaver-bin
+
+    # Remote file system
+    sshfs
+    sftpman
   ];
 }
