@@ -30,5 +30,7 @@
     # Remote file system
     sshfs
     sftpman
+
+    devenv
   ];
 }
