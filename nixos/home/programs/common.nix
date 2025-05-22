@@ -7,8 +7,6 @@
     p7zip
 
     # utils
-    htop
-    ripgrep
     xfce.thunar
     xfce.mousepad
     xarchiver

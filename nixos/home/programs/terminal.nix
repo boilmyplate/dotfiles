@@ -43,12 +43,19 @@
     '';
   };
 
-  programs.starship.enable = true;
-  programs.zoxide.enable = true;
-  programs.eza = {
-    enable = true;
-    git = true;
-    icons = "auto";
+  programs = {
+    starship.enable = true;
+    zoxide.enable = true;
+    ripgrep.enable = true;
+    fd.enable = true;
+    bat.enable = true;
+    htop.enable = true;
+    yazi.enable = true;
+    eza = {
+      enable = true;
+      git = true;
+      icons = "auto";
+    };
   };
 
   home.sessionVariables = {
