@@ -33,13 +33,20 @@
     prezto.enable = true;
     # export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
     initContent = ''
-
       if test -n "$KITTY_INSTALLATION_DIR"; then
         export KITTY_SHELL_INTEGRATION="enabled"
         autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
         kitty-integration
         unfunction kitty-integration
       fi
+
+      function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+        yazi "$@" --cwd-file="$tmp"
+        IFS= read -r -d \'\' cwd < "$tmp"
+        [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+        rm -f -- "$tmp"
+      }
     '';
   };
 
