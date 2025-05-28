@@ -23,6 +23,7 @@
     firefox
     ungoogled-chromium
 
+    obsidian
     webcord
     ];
 
