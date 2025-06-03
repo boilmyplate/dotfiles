@@ -19,6 +19,8 @@
           --add-flags "--disable-gpu-compositing"
       '';
     })
+    jetbrains.idea-community
+    android-studio
 
     # API testing
     postman
