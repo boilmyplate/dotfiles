@@ -72,10 +72,11 @@
   };
 
   home.shellAliases = {
-    ndev = "nix develop /home/emm/dotfiles/nixos --impure";
+    ndev = "nix develop ~/dotfiles/nixos --profile ~/.nix-profiles/default --impure";
     nix = "noglob nix";
     lg = "lazygit";
-    ldock = "lazydocker";
-    spt = "spotify_player -d && spotify_player";
+    ld = "lazydocker";
+    sp = "spotify_player";
+    sd = "spotify_player -d";
   };
 }
