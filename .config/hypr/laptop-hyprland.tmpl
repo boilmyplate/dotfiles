@@ -233,6 +233,17 @@ windowrulev2 = size 40% 40%, class:^(orage)$
 windowrulev2 = move 59% 5%, class:^(orage)$
 #windowrulev2 = stayfocused, class:^(orage)$
 
+# -- jetbrains windows -- https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
+# fix tooltips (always have a title of `win.<id>`)
+windowrulev2 = noinitialfocus, class:^(.*jetbrains.*)$, title:^(win.*)$
+windowrulev2 = nofocus, class:^(.*jetbrains.*)$, title:^(win.*)$
+# fix tab dragging (always have a single space character as their title)
+windowrulev2 = noinitialfocus, class:^(.*jetbrains.*)$, title:^\\s$
+windowrulev2 = nofocus, class:^(.*jetbrains.*)$, title:^\\s$
+windowrulev2 = tag +jb, class:^jetbrains-.+$,floating:1
+windowrulev2 = stayfocused, tag:jb
+windowrulev2 = noinitialfocus, tag:jb
+
 # xwaylandvideobridge
 windowrulev2 = opacity 0.0 override, class:^(xwaylandvideobridge)$
 windowrulev2 = noanim, class:^(xwaylandvideobridge)$
