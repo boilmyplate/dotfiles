@@ -1,0 +1,5 @@
+hyprland.conf
+config.jsonc
+refresh_token
+*.sqlite*
+*.hash

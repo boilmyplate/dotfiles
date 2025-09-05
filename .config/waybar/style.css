@@ -1,0 +1,171 @@
+@keyframes blink-warning {
+  to {
+    background-color: @warning;
+    color: @light;
+  }
+}
+
+@keyframes blink-critical {
+  to {
+    background-color: @critical;
+    color: @light;
+  }
+}
+
+@define-color light #bddbd1;
+@define-color warning #eab308;
+@define-color bg #282828;
+@define-color critical #b91c1c;
+@define-color tray @bg;
+@define-color mode @bg;
+
+@define-color font_gruv_normal #ebdbb2;
+@define-color font_gruv_faded #a89985;
+@define-color font_gruv_darker #D8DEE9;
+@define-color font_dark_alternative #655b53;
+
+@define-color gruv_green_normal #2c916f;
+@define-color gruv_green_faded #24785c;
+@define-color gruv_green_darker #1a5742;
+
+
+* {
+  border: none;
+  border-radius: 0px;
+  min-height: 0;
+
+  font-family: "Font Awesome 6 Free", Inter;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#waybar {
+  background-color: @bg;
+  color: @font_gruv_normal;
+}
+
+
+#window {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/*window#waybar.hidden {*/
+/*  opacity: 0.2;*/
+/*}*/
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+}
+
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -3px @font_gruv_darker;
+}
+
+#workspaces button {
+  padding: 0 1.2em;
+  min-width: 0em;
+  background-color: @gruv_green_normal;
+  color: @font_gruv_darker;
+}
+
+/*#workspaces button:hover {*/
+/*  background: @bg;*/
+/*  color: #FFFFFF;*/
+/*}*/
+
+#workspaces button.active {
+  background-color: @gruv_green_normal;
+  color: @font_gruv_darker;
+  box-shadow: inset 0 -3px @font_gruv_darker;
+}
+
+#workspaces button.urgent {
+  background-color: @warning;
+}
+
+/*.module:not(#workspaces) {*/
+/*  padding: 0 10px;*/
+/*  border-radius: 4px;*/
+/*  color: #ffffff;*/
+/*  margin-top: 5px;*/
+/*  margin-bottom: 5px;*/
+/*}*/
+
+.warning {
+  animation: blink 0.4s linear infinite alternate;
+}
+
+.critical,
+.disconnected {
+  animation: red-blink 0.4s linear infinite alternate;
+}
+
+#custom-arrow1 {
+  font-size: 1.5rem;
+  color: @gruv_green_normal;
+  background: @bg;
+}
+
+#custom-arrow2 {
+  font-size: 1.5rem;
+  color: @font_dark_alternative;
+  background: @bg;
+}
+
+#custom-arrow3 {
+  font-size: 1.5rem;
+  color: @gruv_green_normal;
+  background: @font_dark_alternative;
+}
+
+#custom-arrow4 {
+  font-size: 1.5rem;
+  color: @bg;
+  background: @gruv_green_normal;
+}
+
+/* https://colordesigner.io/gradient-generator/?mode=lch#3633FF-B442FF */
+#clock {
+  background-color: @bg;
+}
+
+#battery {
+  background-color: @gruv_green_normal;
+}
+
+#memory {
+  background-color: @gruv_green_normal;
+}
+
+#cpu {
+  background-color: @gruv_green_normal;
+}
+
+#network {
+  background-color: @font_dark_alternative;
+}
+
+#pulseaudio {
+  background-color: @font_dark_alternative;
+}
+
+/*#custom-media {*/
+/*  background-color: #b442ff;*/
+/*}*/
+
+#tray {
+  margin-right: 1em;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @critical;
+}
+
