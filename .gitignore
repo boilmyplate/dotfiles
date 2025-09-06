@@ -1,4 +1,5 @@
-hyprland.conf
+monitors.conf
+workspaces.conf
 refresh_token
 *.sqlite*
 *.hash
