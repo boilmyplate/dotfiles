@@ -39,6 +39,11 @@
   font-weight: bold;
 }
 
+#mpris {
+  font-size: 1rem;
+  margin-left: 15px;
+}
+
 #waybar {
   background-color: @bg;
   color: @font_gruv_normal;

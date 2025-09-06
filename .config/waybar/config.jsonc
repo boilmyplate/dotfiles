@@ -1,0 +1,31 @@
+{
+  "include": [
+    "$HOME/.config/waybar/MyModules.jsonc"
+  ], // Modules goes here
+  "layer": "top",
+  "position": "top",
+  "exclusive": true,
+  "passthrough": false,
+
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/arrow1",
+    "mpris",
+    "hyprland/window"
+  ],
+
+  "modules-right": [
+    "custom/arrow2",
+    "pulseaudio",
+    "network",
+    "custom/arrow3",
+    "cpu",
+    "memory",
+    "battery",
+    "custom/arrow4",
+    "clock#date",
+    "clock#time",
+    "tray"
+  ]
+}
